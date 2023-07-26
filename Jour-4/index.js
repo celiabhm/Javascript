@@ -72,7 +72,7 @@ lelnput.addEventListener('focus', function(){
 
 
 
-
+// Exo scroll //
 document.addEventListener('scroll', function(scrollEvent){
     console.log(scrollEvent);
     let laBar= document.querySelector('.bar');
@@ -84,9 +84,58 @@ document.addEventListener('scroll', function(scrollEvent){
     Hauteur affichage : ${innerHeight}
     Scroll Position : ${scrollY}
     pourcentage de scroll :${onEstOu} %`);
-
-
-laBar.style.width= onEstOu + '%';
+    laBar.style.width= onEstOu + '%';
 });
 
+// Exo 24.4//
+let txt= document.querySelector("textarea");
+let btn= document.querySelector("button");
 
+txt.addEventListener('keyup', function(event){
+    if(txt.value.length>5){
+        btn.disabled=true;
+    }
+    else{
+        btn.disabled=false;
+    }
+});
+
+// Exo prevent //
+let monForm= document.querySelector("form");
+monForm.addEventListener('submit', function(Event){
+    Event.preventDefault();
+    console.log('ok formulaire envoyé');
+    console.log(Event);
+    monForm.reset();
+});
+
+// Exo settimeout //
+let monTitre= document.querySelector('h2');
+setTimeout(function() {
+    innerText.monTitre("Hi girls !");
+    monTitre.style.backgroundcolor= "#4158D0";
+    monTitre.style.textAlign = 'center';
+    monTitre.style.opacity=1;
+    // Partie corrigée //
+    document.body.style.backgroundImage = " linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)";
+}, 2000); 
+// 2000 = timer (compteur avant de réaliser l'action) //
+
+// Exo setinterval //
+let monTitle= document.querySelector('h3');
+let timer=3;
+
+monTitle.addEventListener('click', function(){
+    const countDown = setInterval(function(){
+        if(timer>0){
+            monTitle.textContent = timer;
+        }
+        else{
+            monTitle.textContent = 'GO,GO,GO';
+            clearInterval(countDown)
+        }
+        console.log(timer);
+        timer--;
+        // pour ne pas gaspiller des performances pour rien //
+    },1000);
+});

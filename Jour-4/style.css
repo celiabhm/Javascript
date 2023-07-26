@@ -21,3 +21,8 @@ h3{
     background: turquoise;
     width: 0%;
 }
+
+#secondadryTitle{
+    /* transition: 5s; */
+    opacity: 0; 
+}

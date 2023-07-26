@@ -43,3 +43,21 @@ list.forEach((uneCase) => uneCase.display());
 firstImg.addEventListener('click', () => {
     console.log('CA CLICK A DONF');
 });
+
+
+
+// NE PAS OUBLIER //
+// class Pme{
+//     constructor(nom,equipe,fraisF,fraisA,revenusR){
+//         this._nom = nom;
+//         this._equipe = equipe;
+//         this._fraisF = fraisF;
+//         this._fraisA = fraisA;
+//         this._revenusR = revenusR;
+//         this._Pme = this.calculPme();
+//         //! attribute en OUT mode (à calculer)
+// }
+// calculPme(){
+//     return(this._revenusR - (this._fraisF + this._fraisA));
+// };
+
