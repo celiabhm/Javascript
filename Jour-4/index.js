@@ -53,7 +53,7 @@ const mainContainer = document.querySelector('#mainContainer');
 let lesImagesFirst = document.querySelectorAll(`img`)[0];
 
 console.log(h3Title);
-document.addEventListener('mouseleave',()=>{
+document.addEventListener('mouseleave', () => {
     //? Comme vu pour les objets on peux accèder aux propriétés dans l'objet style de l'element 
     h3Title.style.display = 'block';
     h3Title.style.color = 'red';
@@ -63,9 +63,9 @@ document.addEventListener('mouseleave',()=>{
 
 // Exo Focus - Blur //
 
-let lelnput= document.querySelector('input');
+let lelnput = document.querySelector('input');
 
-lelnput.addEventListener('focus', function(){
+lelnput.addEventListener('focus', function () {
     lelnput.style.backgroundColor = 'blue';
     lelnput.style.color = 'white';
 });
@@ -73,36 +73,36 @@ lelnput.addEventListener('focus', function(){
 
 
 // Exo scroll //
-document.addEventListener('scroll', function(scrollEvent){
+document.addEventListener('scroll', function (scrollEvent) {
     console.log(scrollEvent);
-    let laBar= document.querySelector('.bar');
-    let scrollMax= document.body.scrollHeight - innerHeight;
-    let onEstOu= (scrollMax*100)/scrollY;
-    
+    let laBar = document.querySelector('.bar');
+    let scrollMax = document.body.scrollHeight - innerHeight;
+    let onEstOu = (scrollMax * 100) / scrollY;
+
     console.log(`
     Hauteur page : ${document.body.scrollHeight}
     Hauteur affichage : ${innerHeight}
     Scroll Position : ${scrollY}
     pourcentage de scroll :${onEstOu} %`);
-    laBar.style.width= onEstOu + '%';
+    laBar.style.width = onEstOu + '%';
 });
 
 // Exo 24.4//
-let txt= document.querySelector("textarea");
-let btn= document.querySelector("button");
+let txt = document.querySelector("textarea");
+let btn = document.querySelector("button");
 
-txt.addEventListener('keyup', function(event){
-    if(txt.value.length>5){
-        btn.disabled=true;
+txt.addEventListener('keyup', function (event) {
+    if (txt.value.length > 5) {
+        btn.disabled = true;
     }
-    else{
-        btn.disabled=false;
+    else {
+        btn.disabled = false;
     }
 });
 
 // Exo prevent //
-let monForm= document.querySelector("form");
-monForm.addEventListener('submit', function(Event){
+let monForm = document.querySelector("form");
+monForm.addEventListener('submit', function (Event) {
     Event.preventDefault();
     console.log('ok formulaire envoyé');
     console.log(Event);
@@ -110,32 +110,49 @@ monForm.addEventListener('submit', function(Event){
 });
 
 // Exo settimeout //
-let monTitre= document.querySelector('h2');
-setTimeout(function() {
+let monTitre = document.querySelector('h2');
+setTimeout(function () {
     innerText.monTitre("Hi girls !");
-    monTitre.style.backgroundcolor= "#4158D0";
+    monTitre.style.color = "white";
     monTitre.style.textAlign = 'center';
-    monTitre.style.opacity=1;
+    monTitre.style.opacity = 1;
     // Partie corrigée //
+    document.style.backgroundColor = "#4158D0"
     document.body.style.backgroundImage = " linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)";
-}, 2000); 
+}, 2000);
 // 2000 = timer (compteur avant de réaliser l'action) //
 
 // Exo setinterval //
-let monTitle= document.querySelector('h3');
-let timer=3;
+let monTitle = document.querySelector('h3');
+let timer = 3;
 
-monTitle.addEventListener('click', function(){
-    const countDown = setInterval(function(){
-        if(timer>0){
+monTitle.addEventListener('click', function () {
+    const countDown = setInterval(function () {
+        if (timer > 0) {
             monTitle.textContent = timer;
         }
-        else{
+        else {
             monTitle.textContent = 'GO,GO,GO';
             clearInterval(countDown)
         }
         console.log(timer);
         timer--;
         // pour ne pas gaspiller des performances pour rien //
-    },1000);
+    }, 1000);
 });
+
+// Exo editeur de texte //
+let monTxt = document.querySelector("textarea");
+let maDiv = document.getElementById("#formrender");
+
+monTxt.addEventListener('keypress', function () {
+    maDiv.innerHTML = marked(monTxt.value);
+});
+
+
+// Rajouter ici le site js //
+
+// Exo local storage //
+monTxt.value = localStorage;
+localStorage.getItem("monSuperTexte");
+if()
